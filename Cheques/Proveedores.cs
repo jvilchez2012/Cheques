@@ -33,6 +33,7 @@ namespace Cheques
         public string Identificacion { get; set; }
         [DataType(DataType.Currency)]
         [Required]
+        [Range(1, 1000000000000, ErrorMessage = "El campo debe ser mayor a 1")]
         public decimal Balance { get; set; }
         [Range(10000, 99999999,ErrorMessage = "Favor validar patica contable")]
         [Required] 

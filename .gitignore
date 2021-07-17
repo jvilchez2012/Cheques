@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Cheques/Cheques.asmx
+/Cheques/Cheques.asmx.cs
+/Cheques/ProveedoresWS.asmx
+/Cheques/ProveedoresWS.asmx.cs
