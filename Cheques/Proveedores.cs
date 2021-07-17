@@ -11,7 +11,8 @@ namespace Cheques
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Proveedores
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +23,19 @@ namespace Cheques
         }
     
         public int ID { get; set; }
+        [Required]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "El nombre debe tener entre 3 y 50 caracteres")]
         public string Nombre { get; set; }
+        [Required]
+        [RegularExpression(@"^[F,J]$", ErrorMessage = "Solo se Admite F:Pesorna Fisica y J:Persona Juridica"), StringLength(1)]
         public string TipoPersona { get; set; }
+        [Required]
         public string Identificacion { get; set; }
+        [DataType(DataType.Currency)]
+        [Required]
         public decimal Balance { get; set; }
+        [Range(10000, 99999999,ErrorMessage = "Favor validar patica contable")]
+        [Required] 
         public int CuentaContableProveedor { get; set; }
         public bool Estado { get; set; }
     

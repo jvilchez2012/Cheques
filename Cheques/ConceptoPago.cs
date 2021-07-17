@@ -11,10 +11,14 @@ namespace Cheques
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ConceptoPago
     {
         public int Id { get; set; }
+        [StringLength(50)]
+        [Required]
+        [Display(Name = "Descripción Para el Cheque")]
         public string Descripcion { get; set; }
         public bool Estado { get; set; }
     }

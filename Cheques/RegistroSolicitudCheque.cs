@@ -11,16 +11,27 @@ namespace Cheques
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class RegistroSolicitudCheque
     {
         public int Id { get; set; }
+        [Required]
+        [Range(10000, 9999999999999, ErrorMessage = "Ningun numero de solicitud menor a 10000 es valido")]
         public int NumeroSolicitud { get; set; }
         public int IDProveedor { get; set; }
+        [Required]
+        [DataType(DataType.Currency)]
         public decimal Monto { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
         public System.DateTime FechaRegistro { get; set; }
+        [Required]
+        [RegularExpression(@"^[P,A,G]$", ErrorMessage = "Solo se Admite A:Anulado, G:Generado y P:Pendiete"), StringLength(1)]
         public string Estado { get; set; }
         public int CuentaContableProveedor { get; set; }
+        [Range(10000, 99999999, ErrorMessage = "Favor validar patica contable")]
+        [Required]
         public int CuentaContableInterna { get; set; }
     
         public virtual Proveedores Proveedores { get; set; }
