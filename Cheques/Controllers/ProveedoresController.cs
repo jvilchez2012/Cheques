@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,15 +49,18 @@ namespace Cheques.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Nombre,TipoPersona,Identificacion,Balance,CuentaContableProveedor,Estado")] Proveedores proveedores)
         {
+           
             if (!validaCedula(proveedores.Identificacion))
-                ModelState.AddModelError("Identificacion", "La identificacion digitada es incorrecta");
+            {
+            ModelState.AddModelError("Identificacion", "La identificacion digitada es incorrecta");
+            }
+                
             if (ModelState.IsValid)
             {
                 db.Proveedores.Add(proveedores);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(proveedores);
         }
 
