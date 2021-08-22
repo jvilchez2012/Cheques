@@ -7,7 +7,7 @@
       <Diagram DiagramId="ed07e274811343d9a988ec4a7cacaede" Name="Diagram1">
         <EntityTypeShape EntityType="checksDBModel.ConceptoPago" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="checksDBModel.Proveedores" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="checksDBModel.RegistroSolicitudCheque" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="checksDBModel.RegistroSolicitudCheque" Width="4.625" PointX="6.125" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="checksDBModel.FK_RegistroSolicitudCheque_Proveedores" ManuallyRouted="false" />
         <AssociationConnector Association="checksDBModel.FK_RegistroSolicitudCheque_Proveedores1" ManuallyRouted="false" />
       </Diagram>
